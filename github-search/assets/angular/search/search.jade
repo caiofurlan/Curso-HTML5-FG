@@ -1,0 +1,14 @@
+form(layout='row', ng-submit='searchForm.$valid && search.submit()',name='searchForm', novalidate)
+	md-input-container(flex)
+		label Github Search
+		input(type='text', ng-model='search.value', required)
+
+	md-button.md-raised(flex='20', flex-sm='100') Search
+
+md-tabs(md-stretch-tabs='always')
+	md-tab(label='repositories')
+		md-list
+			md-list-item(ng-repeat='repo in search.result')
+				a(ng-href='{{repo.html_url}}') {{repo.full_name}} 
+	md-tab(label='user')
+		p content 2
